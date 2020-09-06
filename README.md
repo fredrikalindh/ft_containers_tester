@@ -1,7 +1,7 @@
 # ft_containers_tester
 
 Tester for ft_containers.
-To run this gtest has to be installed. Do this with the gtest_installer.sh
+To run this gtest has to be installed. Do this with the `gtest_installer.sh`
 If it doesn't work you have to install cmake first: Do this with brew install cmake
 
 ### To use the test 

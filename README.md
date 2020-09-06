@@ -1,8 +1,8 @@
 # ft_containers_tester
 
 Tester for ft_containers.
-To run this gtest has to be installed. Do this with the `gtest_installer.sh`
-If it doesn't work you have to install cmake first: Do this with brew install cmake
+To run this gtest has to be installed: `gtest_installer.sh`
+If it doesn't work you have to install cmake first: `brew install cmake`
 
 ### To use the test 
 Place your hpp files in the includes folder and uncomment the files you have 

@@ -93,10 +93,10 @@ TEST(VectorTest, IteratorOP1)
 
 TEST(VectorTest, IteratorOP2)
 {
-  LIBRARY::vector<std::pair<int, int>> myvector2;
-  LIBRARY::vector<std::pair<int, int>>::iterator it2;
-  std::vector<std::pair<int, int>> stdvector2;
-  std::vector<std::pair<int, int>>::iterator stdit2;
+  LIBRARY::vector<std::pair<int, int> > myvector2;
+  LIBRARY::vector<std::pair<int, int> >::iterator it2;
+  std::vector<std::pair<int, int> > stdvector2;
+  std::vector<std::pair<int, int> >::iterator stdit2;
 
   std::pair<int, int> p(1, 2);
   myvector2.push_back(p);

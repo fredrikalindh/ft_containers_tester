@@ -29,8 +29,8 @@ struct classcomp
 
 #include <ft.hpp>
 
-#ifndef FLAGS 
-#define FLAGS 31 
+#ifndef FLAGS
+#define FLAGS 31
 #endif
 
 #if (FLAGS & 1)
@@ -48,7 +48,7 @@ struct classcomp
 #if (FLAGS & 16)
 #include "MapTest.cpp"
 #endif
-// BONUS: 
+// BONUS:
 #if (FLAGS & 32)
 #include "DequeTest.cpp"
 #endif
@@ -57,7 +57,7 @@ struct classcomp
 #endif
 #if (FLAGS & 128)
 #include "MultisetTest.cpp"
-#endif 
+#endif
 #if (FLAGS & 256)
 #include "MultimapTest.cpp"
 #endif

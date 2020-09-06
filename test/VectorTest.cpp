@@ -1,8 +1,9 @@
 TEST(VectorTest, ReverseConstIterator)
 {
   LIBRARY::vector<int> vector; // three ints with a value of 100
-  std::vector<int> svector; // three ints with a value of 100
-  for (int i = 0; i < 10000; ++i) {
+  std::vector<int> svector;    // three ints with a value of 100
+  for (int i = 0; i < 10000; ++i)
+  {
     vector.push_back(i);
     svector.push_back(i);
     vector.push_back(i);
@@ -14,7 +15,8 @@ TEST(VectorTest, ReverseConstIterator)
 
   srit = svector.rbegin();
   rit = vector.rbegin();
-  while (rit != vector.rend()) {
+  while (rit != vector.rend())
+  {
     // *rit += 5;
     EXPECT_EQ(*srit++, *rit++);
   }
@@ -22,7 +24,6 @@ TEST(VectorTest, ReverseConstIterator)
   rit = rit2;
   // rit2 = rit;
 }
-
 
 TEST(VectorTest, ConstIterator)
 {
@@ -50,7 +51,8 @@ TEST(VectorTest, Glagan)
 
   it = myvector.end();
   sit = stdvector.end();
-  for (int i = 0; i < 20; ++i){
+  for (int i = 0; i < 20; ++i)
+  {
     it = myvector.insert(it, i);
     sit = stdvector.insert(sit, i);
   }
@@ -64,7 +66,8 @@ TEST(VectorTest, IteratorOP1)
   std::vector<int> stdvector;
   std::vector<int>::iterator stdit;
 
-  for (int i = 0; i < 20; ++i){
+  for (int i = 0; i < 20; ++i)
+  {
     myvector.push_back(i);
     stdvector.push_back(i);
   }
@@ -90,10 +93,10 @@ TEST(VectorTest, IteratorOP1)
 
 TEST(VectorTest, IteratorOP2)
 {
-  LIBRARY::vector<std::pair<int, int> > myvector2;
-  LIBRARY::vector<std::pair<int, int> >::iterator it2;
-  std::vector<std::pair<int, int> > stdvector2;
-  std::vector<std::pair<int, int> >::iterator stdit2;
+  LIBRARY::vector<std::pair<int, int>> myvector2;
+  LIBRARY::vector<std::pair<int, int>>::iterator it2;
+  std::vector<std::pair<int, int>> stdvector2;
+  std::vector<std::pair<int, int>>::iterator stdit2;
 
   std::pair<int, int> p(1, 2);
   myvector2.push_back(p);
@@ -103,7 +106,6 @@ TEST(VectorTest, IteratorOP2)
   EXPECT_EQ(it2->first, stdit2->first);
   EXPECT_EQ(it2->second, stdit2->second);
 }
-
 
 TEST(VectorTest, RelationalOperators)
 {
@@ -179,7 +181,7 @@ TEST(VectorTest, Insert)
 
   it = myvector.begin();
   it = myvector.insert(it, 200);
- 
+
   myvector.insert(it, 2, 300);
 
   // "it" no longer valid, get a new one:
@@ -207,7 +209,8 @@ TEST(VectorTest, InsertPos)
 
   it = myvector.end();
   sit = stdvector.end();
-  for (int i = 0; i < 20; ++i){
+  for (int i = 0; i < 20; ++i)
+  {
     it = myvector.insert(it, i);
     sit = stdvector.insert(sit, i);
   }
@@ -216,7 +219,7 @@ TEST(VectorTest, InsertPos)
   ASSERT_EQ(myvector.size(), stdvector.size());
   ASSERT_EQ(*it, *sit);
   for (int i = 0; i < 20; ++i)
-     ASSERT_EQ(myvector[i], stdvector[i]);
+    ASSERT_EQ(myvector[i], stdvector[i]);
 }
 
 TEST(VectorTest, InsertN)
@@ -224,7 +227,8 @@ TEST(VectorTest, InsertN)
   LIBRARY::vector<int> myvector(3, 100);
   std::vector<int> stdvector(3, 100);
 
-  for (int i = 0; i < 20; ++i){
+  for (int i = 0; i < 20; ++i)
+  {
     myvector.insert(myvector.end(), 3, i);
     stdvector.insert(stdvector.end(), 3, i);
   }
@@ -232,7 +236,7 @@ TEST(VectorTest, InsertN)
   stdvector.insert(stdvector.begin(), 10, 200);
   ASSERT_EQ(myvector.size(), stdvector.size());
   for (int i = 0; i < 20; ++i)
-     ASSERT_EQ(myvector[i], stdvector[i]);
+    ASSERT_EQ(myvector[i], stdvector[i]);
 }
 
 TEST(VectorTest, InsertRange)
@@ -242,7 +246,8 @@ TEST(VectorTest, InsertRange)
   std::vector<int> stdvector, stdvector2;
   std::vector<int>::iterator sit;
 
-  for (int i = 0; i < 100; ++i){
+  for (int i = 0; i < 100; ++i)
+  {
     myvector.insert(myvector.end(), 3, i);
     stdvector.insert(stdvector.end(), 3, i);
   }
@@ -250,13 +255,13 @@ TEST(VectorTest, InsertRange)
   stdvector2.insert(stdvector2.begin(), stdvector.begin(), stdvector.begin() + 20);
   ASSERT_EQ(myvector.size(), stdvector.size());
   for (int i = 0; i < 20; ++i)
-     ASSERT_EQ(myvector[i], stdvector[i]);
-    
+    ASSERT_EQ(myvector[i], stdvector[i]);
+
   myvector2.insert(myvector2.end(), myvector.end() - 40, myvector.end());
   stdvector2.insert(stdvector2.end(), stdvector.end() - 40, stdvector.end());
   ASSERT_EQ(myvector.size(), stdvector.size());
   for (int i = 0; i < 20; ++i)
-     ASSERT_EQ(myvector[i], stdvector[i]);
+    ASSERT_EQ(myvector[i], stdvector[i]);
 }
 
 TEST(VectorTest, PopBack)
@@ -555,4 +560,3 @@ TEST(VectorTest, Constructors)
   EXPECT_EQ(fifth.front(), 16);
   EXPECT_EQ(fifth.back(), 100);
 }
-

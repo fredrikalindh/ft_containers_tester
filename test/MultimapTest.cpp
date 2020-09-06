@@ -13,8 +13,9 @@ TEST(MultimapTest, Constructors)
 
   int i = 0;
   int result[] = {10, 15, 35, 20, 25, 10, 15, 35, 20, 25};
-  for (LIBRARY::multimap<char, int>::iterator it = first.begin(); it != first.end(); ++it){
-    EXPECT_EQ(it->second, result[i++]); 
+  for (LIBRARY::multimap<char, int>::iterator it = first.begin(); it != first.end(); ++it)
+  {
+    EXPECT_EQ(it->second, result[i++]);
   }
 
   LIBRARY::multimap<char, int> second(first.begin(), first.end());
@@ -141,9 +142,10 @@ TEST(MultimapTest, Insert)
 
   int i = 0;
   int result1[] = {100, 75, 300, 400, 150};
-  for (LIBRARY::multimap<char, int>::iterator it = mymultimap.begin(); it != mymultimap.end(); ++it){
+  for (LIBRARY::multimap<char, int>::iterator it = mymultimap.begin(); it != mymultimap.end(); ++it)
+  {
     EXPECT_EQ(it->second, result1[i++]);
-}
+  }
   i = 0;
   int result2[] = {100, 75};
   for (LIBRARY::multimap<char, int>::iterator it = anothermultimap.begin(); it != anothermultimap.end(); ++it)
@@ -171,7 +173,8 @@ TEST(MultimapTest, InsertVal)
 
   it = mymultimap.begin();
   stdit = stdmultimap.begin();
-  while (it != mymultimap.end()) {
+  while (it != mymultimap.end())
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++it;
@@ -220,7 +223,8 @@ TEST(MultimapTest, InsertPosition)
 
   it = mymultimap.begin();
   stdit = stdmultimap.begin();
-  while (it != mymultimap.end()) {
+  while (it != mymultimap.end())
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++it;
@@ -273,7 +277,8 @@ TEST(MultimapTest, InsertRange)
 
   it = mymultimap2.begin();
   stdit = stdmultimap2.begin();
-  while (it != mymultimap2.end()) {
+  while (it != mymultimap2.end())
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++it;
@@ -284,7 +289,7 @@ TEST(MultimapTest, InsertRange)
 TEST(MultimapTest, EraseAtPosition)
 {
   LIBRARY::multimap<char, int> mymultimap;
-   LIBRARY::multimap<char, int>::iterator it;
+  LIBRARY::multimap<char, int>::iterator it;
 
   // insert some values:
   mymultimap.insert(LIBRARY::pair<char, int>('a', 10));
@@ -320,7 +325,6 @@ TEST(MultimapTest, EraseAtPosition)
   ASSERT_EQ(mymultimap.size(), size_t(5));
   for (LIBRARY::multimap<char, int>::iterator it = mymultimap.begin(); it != mymultimap.end(); ++it)
     EXPECT_EQ(it->second, result3[i++]);
-
 }
 
 TEST(MultimapTest, EraseByKey)
@@ -376,12 +380,12 @@ TEST(MultimapTest, EraseByKey)
   ASSERT_EQ(mymultimap.size(), size_t(2));
   for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
     EXPECT_EQ(it->second, result4[i++]);
-  
+
   ret = mymultimap.erase('c');
   EXPECT_EQ(ret, 1);
   ret = mymultimap.erase('e');
   EXPECT_EQ(ret, 1);
-    ASSERT_TRUE(mymultimap.empty());
+  ASSERT_TRUE(mymultimap.empty());
   for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
     EXPECT_EQ(it->second, result4[i++]);
 }
@@ -412,7 +416,7 @@ TEST(MultimapTest, EraseRange)
 
   // std::cout << "#####################" << std::endl;
   it = mymultimap.find('d');
-   EXPECT_EQ(it->first, 'd');
+  EXPECT_EQ(it->first, 'd');
   mymultimap.erase(mymultimap.begin(), it); // erasing by range
   // for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
   //   std::cout << it->first << "=>" << it->second << std::endl;
@@ -421,7 +425,7 @@ TEST(MultimapTest, EraseRange)
   ASSERT_EQ(mymultimap.size(), size_t(2));
   for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
     EXPECT_EQ(it->second, result2[i++]);
-  
+
   mymultimap.erase(mymultimap.begin(), mymultimap.end()); // erasing by range
   ASSERT_TRUE(mymultimap.empty());
   for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
@@ -450,10 +454,10 @@ TEST(MultimapTest, EraseRange2)
   //   std::cout << it->first << "=>" << it->second << " ";
   // std::cout << std::endl;
   it = mymultimap.find('c');
-  
+
   it2 = mymultimap.end();
   advance(it2, -4);
-    // std::cout << "ERASING FROM "<< it->first << "=>" << it->second  <<  "TO " << it2->first << "=>" << it2->second  << std::endl;
+  // std::cout << "ERASING FROM "<< it->first << "=>" << it->second  <<  "TO " << it2->first << "=>" << it2->second  << std::endl;
 
   mymultimap.erase(it, it2); // erasing by range
   //   for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
@@ -540,7 +544,8 @@ TEST(MultimapTest, EraseRange4)
 
   EXPECT_EQ(mymultimap.size(), stdmultimap.size());
   stdit = stdmultimap.begin();
-  for (it = mymultimap.begin(); it != mymultimap.end(); ++it){
+  for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++stdit;
@@ -555,7 +560,8 @@ TEST(MultimapTest, EraseRange4)
   stdmultimap.erase(stdit, stdit2);
   EXPECT_EQ(mymultimap.size(), stdmultimap.size());
   stdit = stdmultimap.begin();
-  for (it = mymultimap.begin(); it != mymultimap.end(); ++it){
+  for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++stdit;
@@ -570,17 +576,19 @@ TEST(MultimapTest, EraseRange4)
   stdmultimap.erase(stdit, stdit2);
   EXPECT_EQ(mymultimap.size(), stdmultimap.size());
   stdit = stdmultimap.begin();
-  for (it = mymultimap.begin(); it != mymultimap.end(); ++it){
+  for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++stdit;
   }
-  
+
   mymultimap.erase(mymultimap.begin(), mymultimap.end());
   stdmultimap.erase(stdmultimap.begin(), stdmultimap.end());
   EXPECT_EQ(mymultimap.size(), stdmultimap.size());
   stdit = stdmultimap.begin();
-  for (it = mymultimap.begin(); it != mymultimap.end(); ++it){
+  for (it = mymultimap.begin(); it != mymultimap.end(); ++it)
+  {
     EXPECT_EQ(it->first, stdit->first);
     EXPECT_EQ(it->second, stdit->second);
     ++stdit;

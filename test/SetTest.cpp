@@ -91,13 +91,13 @@ TEST(SetTest, MaxSize)
 {
   LIBRARY::set<int> myset;
   std::set<int> stdset;
-  EXPECT_EQ(myset.max_size(), stdset.max_size()) << "T = int = " << sizeof(int); 
+  EXPECT_EQ(myset.max_size(), stdset.max_size()) << "T = int = " << sizeof(int);
   LIBRARY::set<double> myset2;
   std::set<double> stdset2;
-  EXPECT_EQ(myset2.max_size(), stdset2.max_size())  << "T = double = " << sizeof(double); 
+  EXPECT_EQ(myset2.max_size(), stdset2.max_size()) << "T = double = " << sizeof(double);
   LIBRARY::set<char> myset3;
   std::set<char> stdset3;
-  EXPECT_EQ(myset3.max_size(), stdset3.max_size())  << "T = char = " << sizeof(char); 
+  EXPECT_EQ(myset3.max_size(), stdset3.max_size()) << "T = char = " << sizeof(char);
 }
 
 TEST(SetTest, Insert)
@@ -303,8 +303,9 @@ TEST(SetTest, RelOps)
 TEST(SetTest, ConstIterator)
 {
   LIBRARY::set<int> set; // three ints with a value of 100
-  std::set<int> sset; // three ints with a value of 100
-  for (int i = 0; i < 10000; ++i) {
+  std::set<int> sset;    // three ints with a value of 100
+  for (int i = 0; i < 10000; ++i)
+  {
     set.insert(i);
     sset.insert(i);
     set.insert(i);
@@ -316,7 +317,7 @@ TEST(SetTest, ConstIterator)
   LIBRARY::set<int>::const_iterator it3(it);
   LIBRARY::set<int>::iterator it2;
 
-  sit =  sset.begin();
+  sit = sset.begin();
   it = set.begin();
   while (it != set.end())
   {
@@ -332,8 +333,9 @@ TEST(SetTest, ConstIterator)
 TEST(SetTest, ReverseConstIterator)
 {
   LIBRARY::set<int> set; // three ints with a value of 100
-  std::set<int> sset; // three ints with a value of 100
-  for (int i = 0; i < 10000; ++i) {
+  std::set<int> sset;    // three ints with a value of 100
+  for (int i = 0; i < 10000; ++i)
+  {
     set.insert(i);
     sset.insert(i);
     set.insert(i);
@@ -345,7 +347,8 @@ TEST(SetTest, ReverseConstIterator)
 
   srit = sset.rbegin();
   rit = set.rbegin();
-  while (rit != set.rend()) {
+  while (rit != set.rend())
+  {
     // *rit += 5;
     EXPECT_EQ(*srit++, *rit++);
   }

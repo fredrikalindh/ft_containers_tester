@@ -8,7 +8,7 @@ If it doesn't work you have to install cmake first: `brew install cmake`
 Place your hpp files in the includes folder and uncomment the files you have 
 in ft.hpp. It is expected that the containers are names as in the 
 subject in namespace ft with lowercase name as ft::vector. For map and multimap
-I'm also expecting them to use ft::pair. If you used std::pair you will have to 
+it's also expecting them to use ft::pair. If you used std::pair you will have to 
 replace LIBRARY::pair in those tests with std::pair and LIBRARY:make_pair with
 std::make_pair.
 

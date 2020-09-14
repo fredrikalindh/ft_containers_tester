@@ -19,6 +19,9 @@ std::make_pair.
 ``make ``container_name``&& ./unitTester`` to run the container_name test
 ``make stdlib && ./unitTester`` to run the tests with the STL containers
 
+or use the filter to select specific tests
+``--gtest_filter=Vector*`` or ``--gtest_filter=*Insert*``
+
 ### To add tests
 [How to use googletest](https://github.com/google/googletest/blob/master/googletest/docs/primer.md?fbclid=IwAR3Y-Dj-IpBjt_PDk9_hwQyVFbaOf_eJUB8O9SOUgP0NaZm4NUkBSfZ1ivY)
 
